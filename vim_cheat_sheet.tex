@@ -1,0 +1,154 @@
+%---------------------------%
+%----- Package imports -----%
+%---------------------------%
+\documentclass[12pt, a4paper]
+{article}
+\usepackage[utf8]{inputenc}		% Allow input to be UTF-8
+\usepackage[english]{babel}		% Alternative: 'norsk'
+\usepackage{graphicx}			% For importing graphics
+\usepackage{amsmath,			% All the useful AMS packages
+	amsthm, amsfonts, amssymb}
+\usepackage{mathtools}			% Fixes a few AMS bugs
+\usepackage{hyperref}			% For \href{URL}{text}
+\usepackage[top=0.75cm, bottom=1.25cm, left=1.25cm, right=1.25cm, landscape]{geometry} % For margins and orientation
+\usepackage[sharp]{easylist}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+%---------------------------%
+%------ Package setup ------%
+%---------------------------%
+
+% Path to graphics
+\graphicspath{{figures/}}
+
+% Style of enumitem
+\renewcommand{\descriptionlabel}[1]{\large \ttfamily \textbf{#1}}
+
+% Style of tcolorbox
+\newtcbox
+{\mybox}[1][red]{on line,
+	arc=7pt,colback=#1!10!white,colframe=#1!50!black,
+	before upper={\rule[-3pt]{0pt}{10pt}},boxrule=1pt,
+	boxsep=0pt,left=6pt,right=6pt,top=5pt,bottom=3pt}
+
+
+%---------------------------%
+%------ Misc settings ------%
+%---------------------------%
+
+% Paragraph skip
+\setlength{\parskip}{1ex}
+
+%---------------------------%
+%------ Document start -----%
+%---------------------------%
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+	\raisebox{1.4em}{\Huge \bfseries \ttfamily CHEAT SHEET:} \hspace{1em}  \includegraphics[height=2cm]{Vim_logo}
+\end{center}
+%\vspace{0.25em}
+
+\begin{multicols}{3}
+
+\mybox{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Navigating}}
+
+\begin{description}[nolistsep]
+	\item[w] Jump by start of words
+	\item[W] Jump by words
+	\item[E] Jump to end of words
+	\item[B] Jump backwards by words
+	\item[0] Start of line (zero)
+	\item[\$] End of line
+	\item[G] Go To command (\textbf{\texttt{5G}} goes to line 5)
+\end{description}
+
+\mybox[blue]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Inserting and Appending}}
+
+\begin{description}[nolistsep]
+	\item[i] Insert at cursor
+	\item[I] Insert at beginning of line
+	\item[a] Append after cursor
+	\item[A] Append at end of line
+	\item[o] Open blank line below cursor
+	\item[O] Open blank line above cursor
+	\item[ea] Append at end of word
+	\item[Esc] Exit insert mode
+\end{description}
+
+\mybox[green]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Editing}}
+
+\begin{description}[nolistsep]
+	\item[r] Replace single character (not insert mode)
+	\item[J] Join line below to current line
+	\item[cc] Change (replace) entire line
+	\item[cw] Change (replace) to the end of the word
+	\item[c\$] Change (replace) to the end of the line
+	\item[s] Delete character at cursor and substitute text
+	\item[S] Delete line at cursor and substitute text
+	\item[xp] Transpose two characters
+	\item[u] Undo
+	\item[.] Repeat last command
+\end{description}
+
+
+\mybox[yellow]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Cutting and Pasting}}
+
+\begin{description}[nolistsep]
+	\item[yy] Yank (copy) line
+	\item[2yy] Yank 2 lines
+	\item[yw] Yank word
+	\item[y\$] Yank to end of line
+	\item[p] Paste after cursor
+	\item[P] Paste before cursor
+	\item[dd] Delete (cut) line
+	\item[dw] Delete (cut) word
+	\item[x] Delete (cut) character
+\end{description}
+
+\mybox[orange]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Searching and Replacing}}
+
+\begin{description}[nolistsep]
+	\item[/\textit{pattern}] Search for \texttt{\textit{pattern}}
+	\item[?\textit{pattern}] Search backward for \texttt{\textit{pattern}}
+	\item[n] Repeat search in same direction
+	\item[N] Repeat search in opposite direction
+	\item[:\%s/old/new/g] Replace all old with new 
+	\item[:\%s/old/new/gc] Replace all old with new with confirmations
+\end{description}
+
+\mybox[brown]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Working with files}}
+
+\begin{description}[nolistsep]
+	\item[:e \textit{filename}] Edit \texttt{\textit{filename}} in new buffer
+	\item[:\textit{bn}] Go to next buffer (\texttt{\textit{:bnext}})
+	\item[:\textit{bp}] Go to previous buffer (\texttt{\textit{:bprev}})
+	\item[:bd] Delete buffer (close file)
+	\item[:sp \textit{filename}] Open \textit{filename} in new buffer and split window
+	\item[ctrl+ws] Split windows
+	\item[ctrl+ww] Switch between windows
+	\item[ctrl+wq] Quit window
+	\item[ctrl+wv] Split windows vertically
+\end{description}
+
+\mybox[purple]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Exiting}}
+
+\begin{description}[nolistsep]
+	\item[:w] Write (save) the file
+	\item[:q] Quit (fails if changes have been made)
+	\item[:q!] Quit and throw away changes
+	\item[:wq] Write and quit
+\end{description}
+
+%\mybox[gray]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Marking text (visual mode)}}
+
+%\mybox[pink]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Visual commands}}
+
+\end{multicols}
+
+\begin{center}
+	\Huge \textsc{Work in progress...}
+\end{center}
+\end{document}
