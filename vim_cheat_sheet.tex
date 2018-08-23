@@ -71,7 +71,9 @@
 	\item[w] Start of next \textbf{w}ord (\texttt{W} considers-this-one-word)
 	\item[b] \textbf{B}ack to previous word (\texttt{B} same as above)
 	\item[e] \textbf{E}nd of current word (\texttt{E} same as above)
-	\item[0, \$] Start of line, End of line
+	\item[( )] Previous sentence, next sentence
+	\item[0 \textasciicircum \ \$] Start of line, First non-space, End of line
+	\item[\{ \}] Previous paragraph, next paragraph
 	\item[\%] Matching parenthesis
 	\item[v] Visual selection
 \end{description}
@@ -123,12 +125,11 @@
 \mybox[orange]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Searching and Replacing}}
 
 \begin{description}[nolistsep]
-	\item[*] Search for current word
+	\item[*] Search for current word (\texttt{\#} searches backwards)
 	\item[/\textit{pattern}] Search for \texttt{\textit{pattern}}
 	\item[/\textit{pattern}\textbackslash c] Search and ignore case
 	\item[?\textit{pattern}] Search backward for \texttt{\textit{pattern}}
-	\item[n] \textbf{N}ext match in same direction
-	\item[N] Next match in opposite direction
+	\item[n] \textbf{N}ext forward match (\texttt{N} backwards match)
 	\item[:\%s/old/new/g] Substitute old with new 
 	\item[:\%s/old/new/gc] With confirmations
 	\item[:a,bs/old/new/g] Substitute globally in lines \texttt{a} to \texttt{b}, use \verb|:s/old/new/g| for this line
