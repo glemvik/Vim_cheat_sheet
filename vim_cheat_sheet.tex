@@ -47,7 +47,7 @@
 \pagestyle{empty}
 
 \begin{center}
-	\raisebox{1.4em}{\Huge \bfseries \ttfamily CHEAT SHEET:} \hspace{1em}  \includegraphics[height=2cm]{Vim_logo}
+	\raisebox{1.0em}{\Huge \bfseries \ttfamily CHEAT SHEET:} \hspace{1em}  \includegraphics[height=1.5cm]{Vim_logo}
 	\vspace*{0.5em}
 \end{center}
 %\vspace{0.25em}
@@ -82,8 +82,8 @@
 	\item[u] Undo (\texttt{U} to undo changes in line)
 	\item[CTRL + R] Go to newest change
 	\item[.] Repeat last command
+	\item[q] Record macro (e.g. \texttt{qa<stuff>q}, \texttt{norm @a})
 	\item[J] Join line below to current line
-	\item[xp] Transpose two characters
 \end{description}
 
 % COMMANDS
@@ -110,8 +110,8 @@
 \mybox[blue]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Inserting and Appending}}
 
 \begin{description}[nolistsep]
-	\item[o] Open blank line below cursor
-	\item[O] Open blank line above cursor
+	\item[o] Open blank line after cursor (\texttt{O} before)
+	\item[CTRL + n] Keyword completion in insert mode (\texttt{CTRL + p} back)
 \end{description}
 
 \mybox[yellow]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Cutting and Pasting}}
@@ -153,9 +153,8 @@
 \begin{description}[nolistsep]
 	\item[Esc] Exit insert mode
 	\item[:w] Write (save) the file
-	\item[:q] Quit (fails if changes have been made)
-	\item[:q!] Quit and throw away changes
-	\item[:!<cmd>] Execute external command \texttt{cmd}
+	\item[:q] Quit ( use \texttt{q!} to discard changes)
+	\item[:!<cmd>] Execute terminal command \texttt{cmd}
 \end{description}
 
 \mybox[black]{\makebox[0.28\textwidth][c]{\Large \bfseries \ttfamily Examples}}
